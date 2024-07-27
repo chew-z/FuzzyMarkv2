@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Fuzzy Search</title>
+        <script src="/js/jquery-3.7.1.min.js"></script>
+        <script src="/js/fuse.js" async></script>
+        <script src="/js/popup.js" async></script>
+        <script src="/js/bootstrap.bundle.min.js" async></script>
+        <link rel="stylesheet" href="/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/css/popup.css" />
+        <link rel="icon" type="image/png" href="/icon.png" />
+    </head>
+    <body class="body">
+        <div container class="container-fluid">
+            <!-- <img src="/img/icon.png" class="logo" alt="" /> -->
+            <div class="row">
+                <div class="input">
+                    <input class="input-text" id="search-input" type="text" placeholder="Find your bookmarks..." />
+                </div>
+            </div>
+            <div class="row">
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        <div id="results" class="result-box"></div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- <footer class="footer"> -->
+        <!-- </footer> -->
+    </body>
+</html>
