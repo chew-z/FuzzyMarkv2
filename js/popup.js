@@ -3,7 +3,7 @@ const fuseOptions = {
     keys: [
         { name: 'title', weight: 3 },
         { name: 'path', weight: 1 },
-        { name: 'url', weight: 2 },
+        { name: 'url', weight: 1 },
     ], // 'title', 'url', 'path'],
     threshold: 0.4,
     shouldSort: true,
@@ -43,6 +43,7 @@ let fuse
 //     })
 //     $(location).append(resultNodes)
 // }
+//
 function displayResults2(results, location) {
     var html = ''
     const dateOptions = { year: 'numeric', month: 'short', day: 'numeric' }
@@ -105,7 +106,10 @@ function initNodePaths(parent, parentPath) {
 
 // initialise Fuse instance
 chrome.bookmarks.getTree((results) => {
-    const bookmarks = results[0].children.find((child) => child.title === 'Other Bookmarks')
+    // console.log(results)
+    // const bookmarks = results[0].children.find((child) => child.title === 'Other Bookmarks')
+    const bookmarks = results[0] // Also Bookmarks Bar
+    // console.log(bookmarks)
     initNodePaths(bookmarks, '')
     bookmarksList = flattenArray(bookmarks.children)
     fuse = new Fuse(bookmarksList, fuseOptions)
