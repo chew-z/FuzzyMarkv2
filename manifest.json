@@ -4,7 +4,7 @@
     "name": "Fuzzy Mark v2",
     "offline_enabled": true,
     "description": "Fuzzy search your bookmarks",
-    "version": "2.0.3",
+    "version": "2.0.5",
     "browser_action": {
         "default_icon": "img/icon.png",
         "default_popup": "html/popup.html",

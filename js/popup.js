@@ -12,6 +12,7 @@ const fuseOptions = {
     includeScore: true,
     minMatchCharLength: 3,
 }
+const locale = getLang()
 let bookmarksList = []
 let fuse
 
@@ -45,10 +46,14 @@ let fuse
 //     $(location).append(resultNodes)
 // }
 //
+function getLang() {
+    return navigator.language || navigator.languages[0]
+}
+//
 function displayResults2(results, location) {
     var html = ''
     const dateOptions = { year: 'numeric', month: 'short', day: 'numeric' }
-    const dateTimeFormat = new Intl.DateTimeFormat('pl-PL', dateOptions)
+    const dateTimeFormat = new Intl.DateTimeFormat(locale, dateOptions)
     for (let i = 0; i < results.length; i++) {
         let res = results[i]
         const score = (100.0 * res.score).toFixed(2)
@@ -58,7 +63,7 @@ function displayResults2(results, location) {
         const date = new Date(res.item.dateAdded)
         const bookmarkDate = dateTimeFormat.format(date)
         html += `
-        <li class="list-group-item" title="${url}">
+        <li class="list-group-item">
                 <a href="${url}" target="_blank" class="card-link">
                     <div class="card-title">${title}</div>
                 </a>
